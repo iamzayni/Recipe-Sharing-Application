@@ -23,7 +23,6 @@ const App=() => {
             <Route path='/menu' element={<Menu />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/blog' element={<Blog />} />
-
          </Routes>
         </div>
 
