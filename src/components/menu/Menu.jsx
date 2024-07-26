@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../client-layout/Header';
 import Footer from '../../client-layout/Footer';
 import backgroundImage from '../../images/Slide-5.jpg'; // Import your background image
+import Categories from '../menu/Categories'
 
 const Menu = () => {
   return (
@@ -25,6 +26,7 @@ const Menu = () => {
         <div className="relative z-10 flex-grow">
           {/* Additional content or sections */}
         </div>
+        <Categories />
         <Footer />
       </main>
     </div>

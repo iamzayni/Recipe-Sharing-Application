@@ -5,8 +5,7 @@ import About from '../about/About'
 const Index = () => {
     return (
         <>
-            <About />            
-        </>
+            <About />        </>
     );
 };
 export default Index;

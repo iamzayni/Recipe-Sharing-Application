@@ -1,8 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Header from '../../client-layout/Header';
 import Footer from '../../client-layout/Footer';
 import backgroundImage from '../../images/Slide-5.jpg'; // Import the image
+import Team from '../about/Team'
+import Partners from '../about/Partners'
+import Faq from '../about/Faq'
 
 const About = () => {
   return (
@@ -20,21 +22,10 @@ const About = () => {
             </p>
           </div>
         </div>
-        <div className="flex flex-col items-center mb-8">
-          <h2 className="text-2xl font-bold mb-4">Key Features:</h2>
-          <ul className="list-disc list-inside mb-4">
-            <li>Post, view, edit, and delete recipes.</li>
-            <li>Upload images of your culinary creations.</li>
-            <li>Rate and comment on recipes.</li>
-            <li>User-friendly interface with a focus on ease of use.</li>
-          </ul>
-        </div>
-        <div className="flex justify-center mb-4">
-          <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-full hover:bg-blue-700 transition duration-300">
-            Go to Home
-          </Link>
-        </div>
       </main>
+      <Partners />
+      <Team />
+      <Faq />
       <Footer />
     </div>
   );

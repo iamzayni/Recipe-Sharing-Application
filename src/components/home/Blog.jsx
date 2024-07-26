@@ -33,24 +33,24 @@ const blogPosts = [
 
 const Blog = () => {
   return (
-    <div className="container mx-auto p-6">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Blog</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="container mx-auto p-4">
+      <h1 className="text-4xl font-bold text-center my-8">Blog</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogPosts.map((post) => (
           <div
             key={post.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform transform hover:scale-105"
+            className="bg-white rounded-lg shadow-md overflow-hidden blog-post"
           >
-            <div className="relative" style={{ paddingTop: '75%' }}>
+            <div className="relative" style={{ paddingTop: '125%' }}>
               <img
                 src={post.imageUrl}
                 alt={post.title}
-                className="absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-300 hover:opacity-80"
+                className="absolute top-0 left-0 w-full h-full object-cover"
               />
             </div>
-            <div className="p-6">
-              <p className="text-xs text-gray-500 mb-2">{post.date}</p>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-4">{post.title}</h2>
+            <div className="p-4">
+              <p className="text-sm text-gray-600">{post.date}</p>
+              <h2 className="text-xl font-bold my-2">{post.title}</h2>
               <p className="text-gray-700">{post.description}</p>
             </div>
           </div>
