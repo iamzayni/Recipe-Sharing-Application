@@ -1,18 +1,14 @@
 import React from 'react';
-import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import Home from './components/home/Index'
+import Home from './components/home/Index';
 import About from './components/about/About';
 import Menu from './components/menu/Menu';
 import Gallery from './components/gallery/Gallery';
 import Blog from './components/blog/Blog';
 
 
-
-
-const App=() => {
-  
-
+const App = () => {
   return (
     <>
       <Router>
@@ -23,12 +19,11 @@ const App=() => {
             <Route path='/menu' element={<Menu />} />
             <Route path='/gallery' element={<Gallery />} />
             <Route path='/blog' element={<Blog />} />
-         </Routes>
+          </Routes>
         </div>
-
-     </Router>
+      </Router>
     </>
-  )
+  );
 }
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 import Zain from '../../images/team/Zain.png';
 import Umair from '../../images/team/Umair.png';
 
@@ -11,8 +12,8 @@ const teamMembers = [
     image: Zain,
     description: 'Leading the company with a vision to innovate and disrupt the industry.',
     socialLinks: [
-      { icon: 'fa fa-linkedin', link: 'https://www.linkedin.com/in/zain' },
-      { icon: 'fa fa-twitter', link: 'https://twitter.com/zain' },
+      { icon: <FaLinkedin />, link: 'https://www.linkedin.com/in/zain' },
+      { icon: <FaTwitter />, link: 'https://twitter.com/zain' },
     ],
   },
   {
@@ -22,8 +23,8 @@ const teamMembers = [
     image: Umair,
     description: 'Building scalable and efficient solutions to drive business growth.',
     socialLinks: [
-      { icon: 'fa fa-linkedin', link: 'https://www.linkedin.com/in/umair' },
-      { icon: 'fa fa-twitter', link: 'https://twitter.com/umair' },
+      { icon: <FaLinkedin />, link: 'https://www.linkedin.com/in/umair' },
+      { icon: <FaTwitter />, link: 'https://twitter.com/umair' },
     ],
   },
   // Add more team members if needed
@@ -68,7 +69,7 @@ const TeamMember = ({ member }) => {
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-gray-800 transition duration-300 mr-2"
             >
-              <i className={link.icon} />
+              {link.icon}
             </a>
           ))}
         </div>

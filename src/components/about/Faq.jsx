@@ -1,5 +1,5 @@
-// FAQs.jsx
-import React from 'react';
+import React, { useState } from 'react';
+import { FaChevronDown, FaChevronUp } from 'react-icons/fa';
 
 const faqs = [
   { question: 'How do I submit a recipe?', answer: 'To submit a recipe, click on the "Submit Recipe" button on the homepage and fill out the required details in the form.' },
@@ -11,18 +11,38 @@ const faqs = [
 ];
 
 const FAQs = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleFAQ = (index) => {
+    setActiveIndex(activeIndex === index ? null : index);
+  };
+
   return (
-    <div className="flex flex-col items-center mb-8 p-4 bg-white shadow-sm rounded-lg">
+    <div className="flex flex-col items-center mb-6 p-2 bg-white shadow-sm rounded-lg max-w-4xl mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-gray-800">Frequently Asked Questions</h2>
-      <div className="flex flex-col md:flex-row md:flex-wrap md:justify-center gap-4">
+      <div className="w-full flex flex-wrap">
         {faqs.map((faq, index) => (
-          <div key={index} className="w-full md:w-1/2 lg:w-1/3 p-4 bg-gray-100 rounded-lg shadow-sm">
-            <h3 className="text-lg font-semibold mb-2 text-gray-700">{faq.question}</h3>
+          <div
+            key={index}
+            className="mb-3 bg-gray-100 rounded-lg shadow-sm p-3 w-full md:w-1/2 lg:w-1/3"
+          >
+            <div
+              className="flex justify-between items-center cursor-pointer"
+              onClick={() => toggleFAQ(index)}
+            >
+              <h3 className="text-md font-semibold text-gray-700">{faq.question}</h3>
+              <span className="text-gray-700">
+                {activeIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+              </span>
+            </div>
+            {activeIndex === index && (
+              <p className="mt-2 text-gray-600">{faq.answer}</p>
+            )}
           </div>
         ))}
       </div>
     </div>
   );
-}
+};
 
 export default FAQs;

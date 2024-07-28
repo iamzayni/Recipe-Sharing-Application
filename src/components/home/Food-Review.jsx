@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaStar } from 'react-icons/fa';
 
 const reviews = [
   {
@@ -27,12 +28,15 @@ const FoodReview = () => {
       <h2 className="text-4xl font-bold mb-8 text-center text-gray-800">Food Reviews</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {reviews.map((review) => (
-          <div key={review.id} className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+          <div
+            key={review.id}
+            className="bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition duration-300"
+          >
             <div className="flex items-center mb-4">
               <h3 className="text-2xl font-semibold text-gray-800">{review.name}</h3>
-              <div className="ml-2">
+              <div className="ml-2 flex items-center">
                 {[...Array(review.rating).keys()].map((index) => (
-                  <i key={index} className="fas fa-star text-yellow-500"></i>
+                  <FaStar key={index} className="text-yellow-500" />
                 ))}
               </div>
             </div>
