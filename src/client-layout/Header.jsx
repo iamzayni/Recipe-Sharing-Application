@@ -13,7 +13,7 @@ const Header = () => {
         </div>
         {/* Navigation */}
         <nav>
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 items-center">
             <li>
               <Link to="/" className="hover:text-yellow-500">Home</Link>
             </li>
@@ -29,11 +29,14 @@ const Header = () => {
             <li>
               <Link to="/blog" className="hover:text-yellow-500">Blog</Link>
             </li>
-            <li>
-              <Link to="/login" className="bg-yellow-500 hover:bg-yellow-700 text-black py-2 px-4 rounded">UserLogin</Link>
-            </li>
           </ul>
         </nav>
+        {/* UserLogin Button */}
+        <div>
+          <Link to="/login" className="bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600">
+            UserLogin
+          </Link>
+        </div>
       </div>
     </header>
   );
