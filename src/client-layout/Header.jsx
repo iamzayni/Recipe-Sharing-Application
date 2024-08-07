@@ -34,7 +34,7 @@ const Header = () => {
         {/* UserLogin Button */}
         <div>
           <Link to="/login" className="bg-yellow-500 text-black py-2 px-4 rounded hover:bg-yellow-600">
-            UserLogin
+            User
           </Link>
         </div>
       </div>

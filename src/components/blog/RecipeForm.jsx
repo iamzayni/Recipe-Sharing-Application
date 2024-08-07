@@ -4,13 +4,13 @@ import { v4 as uuidv4 } from 'uuid';
 const RecipeForm = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);
+  const [ingredients, setIngredients] = useState('');
   const [recipes, setRecipes] = useState([]);
   const [editing, setEditing] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!title || !description) {
+    if (!title || !description || !ingredients) {
       alert('Please fill in all fields.');
       return;
     }
@@ -18,14 +18,14 @@ const RecipeForm = () => {
     if (editing) {
       const updatedRecipes = recipes.map((recipe) => {
         if (recipe.id === editing) {
-          return { ...recipe, title, description, image };
+          return { ...recipe, title, description, ingredients };
         }
         return recipe;
       });
       setRecipes(updatedRecipes);
       setEditing(null);
     } else {
-      const newRecipe = { id: uuidv4(), title, description, image };
+      const newRecipe = { id: uuidv4(), title, description, ingredients };
       setRecipes([...recipes, newRecipe]);
     }
     resetForm();
@@ -36,7 +36,7 @@ const RecipeForm = () => {
     if (recipe) {
       setTitle(recipe.title);
       setDescription(recipe.description);
-      setImage(recipe.image);
+      setIngredients(recipe.ingredients);
       setEditing(id);
     }
   };
@@ -49,7 +49,7 @@ const RecipeForm = () => {
   const resetForm = () => {
     setTitle('');
     setDescription('');
-    setImage(null);
+    setIngredients('');
   };
 
   return (
@@ -82,19 +82,16 @@ const RecipeForm = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="image">
-            Image
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="ingredients">
+            Ingredients
           </label>
-          <input
+          <textarea
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="image"
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(URL.createObjectURL(e.target.files[0]))}
+            id="ingredients"
+            value={ingredients}
+            onChange={(e) => setIngredients(e.target.value)}
+            required
           />
-          {image && (
-            <img src={image} alt="Preview" className="mt-2 w-full h-32 object-cover rounded" />
-          )}
         </div>
         <button
           className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2"
@@ -114,10 +111,8 @@ const RecipeForm = () => {
         {recipes.map((recipe) => (
           <li key={recipe.id} className="py-4 border-b">
             <h3 className="text-2xl font-bold mb-2">{recipe.title}</h3>
-            <p className="text-gray-700 text-sm">{recipe.description}</p>
-            {recipe.image && (
-              <img src={recipe.image} alt={recipe.title} className="mt-2 w-full h-32 object-cover rounded" />
-            )}
+            <p className="text-gray-700 text-sm mb-2">{recipe.description}</p>
+            <p className="text-gray-700 text-sm"><strong>Ingredients:</strong> {recipe.ingredients}</p>
             <div className="mt-2">
               <button
                 className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded focus:outline-none focus:shadow-outline mr-2"
